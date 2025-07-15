@@ -40,8 +40,8 @@ exports.signin = async (req, res) => {
     res.cookie("token", accesToken, {
       maxAge: 1000 * 60 * 60 * 24 * 30,
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
      
     });
     res
@@ -77,9 +77,9 @@ exports.login = async (req, res) => {
     }
     res.cookie("token", accessToken, {
       maxAge: 1000 * 60 * 60 * 24 * 30,
-      httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+       httpOnly: true,
+      sameSite: "none",
+      secure: true,
       
     });
     res.status(200).json({ msg: "User logged in succcessfully !" });
@@ -214,9 +214,9 @@ exports.logout = async (req, res) => {
   try {
     res.cookie("token", "", {
       maxAge: Date.now(),
-      httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+       httpOnly: true,
+      sameSite: "none",
+      secure: true,
       
     });
 
