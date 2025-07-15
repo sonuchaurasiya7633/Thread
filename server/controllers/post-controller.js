@@ -19,7 +19,7 @@ exports.addPost = async (req, res) => {
       if (files.media) {
         const uploadedImage = await cloudinary.uploader.upload(
           files.media.filepath,
-          { folder: "Threads_clone_youtube/Posts" }
+          { folder: "Threads/Posts" }
         );
         if (!uploadedImage) {
           return res.status(400).json({ msg: "Error while uploading Image !" });
